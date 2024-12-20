@@ -3,6 +3,7 @@ import styles from "@/styles";
 import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { MotiView } from 'moti';
+import { Easing } from "react-native-reanimated"; // Importação do Easing
 
 export default function Index() {
   const [person, setPerson] = useState("");
@@ -54,8 +55,21 @@ export default function Index() {
         resposta && (
           <MotiView
             style={styles.card}
-            from={{ opacity: 0, translateX: 200 }}
-            animate={{ opacity: 1, translateX: 0 }}
+            from={{
+              opacity: 0,
+              translateX: 200,
+              rotate: "-90deg", // Começa girando fora do campo de visão
+            }}
+            animate={{
+              opacity: 1,
+              translateX: 0,
+              rotate: "0deg", // Finaliza com rotação normal
+            }}
+            transition={{
+              type: "timing",
+              duration: 600,
+              easing: Easing.out(Easing.ease), // Uso do Easing corrigido
+            }}
           >
             <Text style={styles.cardTitle}>Seu apelido é:</Text>
             <Text style={styles.cardText}>{resposta}</Text>
