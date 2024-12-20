@@ -6,18 +6,23 @@ import { MotiView } from 'moti';
 
 export default function Index() {
   const [person, setPerson] = useState("");
+  const [situation, setSituation] = useState("");
   const [resposta, setResposta] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleGeneratorSurname = async () => {
-    if(person.length < 10) {
-      alert("Desculpa, o evento precisa ter mais de 5 caracteres")
+    if(person.length < 3) {
+      alert("Desculpa, eu preciso ter uma pessoa para zoar! kkk")
+      return;
+    }
+    if(situation.length < 10) {
+      alert("Desculpa, mas está faltando mais informações sobre a pessoa")
       return;
     }
     setIsLoading(true);
 
     // Generator AI
-    await generatorSurname(person).then((response) => {
+    await generatorSurname(person, situation).then((response) => {
       setResposta(response)
       setIsLoading(false);
     }).catch(() => {
@@ -28,13 +33,18 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Joke Apelidator</Text>
-      <Text style={styles.subtitle}>Sua máquina de apelidos sarcásticos</Text>
+      <Text style={styles.subtitle}>Seu amigo de apelidos sarcásticos HAHAHA</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={setPerson}
+        placeholder="Digite a pessoa que você quer apelidar..."
+      ></TextInput>
       <TextInput
         multiline={true}
         numberOfLines={4}
         style={styles.input}
-        onChangeText={setPerson}
-        placeholder="Digite sobre a pessoa que você quer apelidar..."
+        onChangeText={setSituation}
+        placeholder="Digite Característica/Situação"
       ></TextInput>
       <TouchableOpacity style={styles.button} onPress={handleGeneratorSurname}>
         <Text style={styles.buttonText}>{isLoading ? "Carregando..." : "Gerar apelido sarcástico!"}</Text>

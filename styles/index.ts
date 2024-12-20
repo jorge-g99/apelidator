@@ -4,61 +4,80 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#1A1A40", // Fundo roxo escuro
     padding: 20,
   },
   title: {
-    fontSize: 32,
+    fontSize: 36,
     fontWeight: "bold",
-    color: "#FF6B6B",
+    color: "#E63946", // Vermelho vibrante
+    textShadowColor: "#000",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 4,
     marginBottom: 10,
   },
   subtitle: {
-    fontSize: 16,
-    color: "#666",
+    fontSize: 18,
     fontStyle: "italic",
+    color: "#E5E5E5", // Cinza claro
     marginBottom: 20,
   },
   input: {
     width: "100%",
-    height: "auto",
-    backgroundColor: "#FFF",
+    minHeight: 40,
+    backgroundColor: "#F4F4F4", // Branco gelo
     borderRadius: 10,
     paddingHorizontal: 10,
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: "#6C757D", // Cinza neutro
     marginBottom: 20,
   },
   button: {
-    backgroundColor: "#4ECDC4",
-    height: 40,
+    backgroundColor: "#2DC653", // Verde neon
+    height: 50,
     alignItems: "center",
-    borderRadius: 10,
     justifyContent: "center",
+    borderRadius: 15,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
     width: "100%",
   },
   buttonText: {
     fontWeight: "bold",
-    color: "#FFF",
+    color: "#FFFFFF",
+    fontSize: 18,
   },
   card: {
-    borderWidth: 1,
-    backgroundColor: "white",
+    borderWidth: 2,
+    backgroundColor: "#3D348B", // Roxo vibrante
+    borderColor: "#2DC653", // Borda verde neon
     marginTop: 30,
     width: "100%",
-    borderRadius: 10,
+    borderRadius: 15,
     padding: 20,
-    borderColor: "#ddd",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
   },
   cardTitle: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
-    color: "#333",
+    color: "#FFDE03", // Amarelo neon
     marginBottom: 10,
+    textAlign: "center",
+    textShadowColor: "#000",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
   cardText: {
     fontSize: 16,
-    color: "#666",
+    color: "#FFFFFF", // Branco
+    lineHeight: 22,
   },
 });
 

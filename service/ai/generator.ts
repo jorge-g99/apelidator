@@ -3,7 +3,7 @@ const Groq = require('groq-sdk');
 //Configure sua api key da Groq -> https://console.groq.com/playground
 const groq = new Groq({ apiKey: process.env.EXPO_PUBLIC_GROQ_KEY });
 
-export async function generatorSurname(person: string) {
+export async function generatorSurname(person: string, situation: string) {
   const chatCompletion = await groq.chat.completions.create({
     "messages": [
       {
@@ -36,7 +36,7 @@ export async function generatorSurname(person: string) {
       },
       {
         "role": "user",
-        "content": person
+        "content": `${person},\n\n${situation}`
       }
     ],
     "model": "llama-3.1-70b-versatile",
